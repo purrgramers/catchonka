@@ -1,31 +1,38 @@
 import { NavLink } from "react-router-dom";
+
 function Navbar() {
-    const elSwitchs = document.querySelectorAll('.elSwitch')
-    elSwitchs.forEach( e => {
-            e.addEventListener('click', function(){
-            if (e.classList.contains('left-[155px]')){
-                e.classList.remove('left-[155px]')
-                e.classList.add('left-1')
-            }else {
-                e.classList.remove('left-1')
-                e.classList.add('left-[155px]')
-            }
-            
-        })
-    } )
+ 
   return (
-    <div className="mx-8 shadow rounded-full h-10 mt-4 flex bg-green-200 p-1 relative items-center">
-    <div className="w-full flex justify-center">
-        <button href="/">Home</button>
-    </div>
-    <div className="w-full flex justify-center">
-        <button href="/Profile">Profile</button>
-    </div>
-    <span 
-    className="elSwitch bg-teal-600 shadow text-white flex items-center justify-center w-1/2 rounded-full h-8 transition-all top-[4px] absolute left-1 ">
-    Home
-    </span>
-</div>
+<><nav id="header" className="w-full z-30 top-10 py-1 bg-green-200 shadow-lg  ">
+      <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
+         <NavLink to="/" className="font-bold text-pink-800 uppercase">Catchonka</NavLink>
+         <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
+            <svg className="fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+               <title>menu</title>
+               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+         </label>
+         <input className="hidden" type="checkbox" id="menu-toggle">
+         </input>
+         <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+            <nav>
+               <ul className="md:flex items-center justify-between text-base text-pink-900 pt-4 md:pt-0">
+                  <li><NavLink className="inline-block no-underline hover:text-black  font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
+                  <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/Profile/:catId">Profile</NavLink></li>
+               </ul>
+            </nav>
+         </div>
+         
+         <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+            <div className="auth flex items-center w-full md:w-full">
+               <button className="bg-orange-400 text-pink-900  p-2 rounded font-bold uppercase hover:bg-orange-500 hover:text-pink-900">Add Cat</button>
+            </div>
+         </div>
+        
+      </div>
+     
+   </nav>
+      </>
   );
 }
 
