@@ -1,7 +1,5 @@
-
-
 function Navbar() {
-    return ()
+    return
 }
 
 export default Navbar;

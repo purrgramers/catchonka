@@ -3,7 +3,7 @@
 function Footer(){
     return(
         <>
-        <a href="https://github.com/purrgramers/catchonka"/>
+        <a href="https://github.com/purrgramers/catchonka"> This is the footer </a>
         </>
     )
 }
