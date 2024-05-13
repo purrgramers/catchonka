@@ -1,5 +1,10 @@
-function Home(){
-    
-    return <div>This is the content</div>
+import CatProfileList from "../components/CatProfileList";
+
+function Home() {
+  return (
+    <>
+      <CatProfileList />
+    </>
+  );
 }
-export default Home
+export default Home;
