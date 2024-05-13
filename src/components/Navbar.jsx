@@ -18,7 +18,7 @@ function Navbar() {
             <nav>
                <ul className="md:flex items-center justify-between text-base text-pink-900 pt-4 md:pt-0">
                   <li><NavLink className="inline-block no-underline hover:text-black  font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
-                  <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/Profile/:catId">Profile</NavLink></li>
+                  <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/cats/:catId">Profile</NavLink></li>
                </ul>
             </nav>
          </div>
