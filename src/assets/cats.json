@@ -1,0 +1,139 @@
+{
+    "cats" : [
+        {
+            "name": "Balu",
+            "age": 8,
+            "picture": ,
+            "favouriteSnack": "oil",
+            "chonkLevel": "chonk chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Benjamim",
+            "age": 6,
+            "picture": ,
+            "favouriteSnack": "tuna",
+            "chonkLevel": "chonk",
+            "catMood": ,
+        },
+        
+        {
+            "name": "Bejinha",
+            "age": 4,
+            "picture": ,
+            "favouriteSnack": "chicken",
+            "chonkLevel": "mini chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Maui",
+            "age": 5,
+            "picture": ,
+            "favouriteSnack": "fish",
+            "chonkLevel": "big chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Paulchen",
+            "age": 13,
+            "picture": ,
+            "favouriteSnack": "meat stick",
+            "chonkLevel": "big chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Lili",
+            "age": 13,
+            "picture": ,
+            "favouriteSnack": "salmon",
+            "chonkLevel": "chonk chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Misch-Misch",
+            "age": 9,
+            "picture": ,
+            "favouriteSnack": "mice",
+            "chonkLevel": "chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Gaston",
+            "age": 5,
+            "picture": ,
+            "favouriteSnack": "tuna",
+            "chonkLevel": "chonk chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Mochi",
+            "age": 5,
+            "picture": ,
+            "favouriteSnack": "cheese",
+            "chonkLevel": "mini chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Manju",
+            "age": 6,
+            "picture": ,
+            "favouriteSnack": "cheese",
+            "chonkLevel": "big chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Lina Maria",
+            "age": 3,
+            "picture": "chicken",
+            "favouriteSnack": ,
+            "chonkLevel": "chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Pitucha",
+            "age": 13,
+            "picture": ,
+            "favouriteSnack": "shrimp",
+            "chonkLevel": "chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Pouf",
+            "age": ,
+            "picture": ,
+            "favouriteSnack": ,
+            "chonkLevel": "chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Floki",
+            "age": ,
+            "picture": ,
+            "favouriteSnack": ,
+            "chonkLevel": "big chonk",
+            "catMood": ,
+        },
+
+        {
+            "name": "Batman",
+            "age": ,
+            "picture": ,
+            "favouriteSnack": ,
+            "chonkLevel": "chonk",
+            "catMood": ,
+        }
+
+    ]
+}
