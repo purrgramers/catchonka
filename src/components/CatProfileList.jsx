@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import { API_URL } from "../utils/constants"
 function CatProfileList(){
     const getProfiles = () => {axios.get}
     return(
