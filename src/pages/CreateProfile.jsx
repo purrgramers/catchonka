@@ -11,6 +11,8 @@ function CreateProfile() {
   const [bio, setBio] = useState("");
   const [livesLeft, setLivesLeft] = useState(0);
 
-  return;
+  return <div>This is the content</div>;
 }
+
+export default CreateProfile
 
