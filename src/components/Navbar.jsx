@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link } from "react-router-dom";
 
 function Navbar() {
  
   return (
-<><nav id="header" className="w-full z-30 top-10 py-1 bg-green-200 shadow-lg  ">
-      <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
-         <NavLink to="/" className="font-bold text-pink-800 uppercase">Catchonka</NavLink>
+<><nav id="header" className="w-full z-30  top-10 py-1  ">
+      <div className="w-full flex items-center justify-between  mt-0 px-6 py-2">
+         <NavLink to="/" className="font-bold text-indigo-600 uppercase">Catchonka</NavLink>
          <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
             <svg className="fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                <title>menu</title>
@@ -16,8 +16,8 @@ function Navbar() {
          </input>
          <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
-               <ul className="md:flex items-center justify-between text-base text-pink-900 pt-4 md:pt-0">
-                  <li><NavLink className="inline-block no-underline hover:text-black  font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
+               <ul className="md:flex items-center justify-between  rounded-full text-base bg-indigo-600 text-indigo-900 p-2  ">
+                  <li><NavLink className="inline-block no-underline hover:text-white hover:bg-pink-500 font-medium  rounded-full bg-pink-200 text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
                   <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/cats/:catId">Profile</NavLink></li>
                </ul>
             </nav>
@@ -25,7 +25,7 @@ function Navbar() {
          
          <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div className="auth flex items-center w-full md:w-full">
-               <button className="bg-orange-400 text-pink-900  p-2 rounded font-bold uppercase hover:bg-orange-500 hover:text-pink-900" href="/cats/create">Add Cat</button>
+               <Link className="bg-yellow-300 text-indigo-900  p-2 rounded font-bold uppercase hover:bg-yellow-500 hover:text-indigo-900" to="/cats/create">Add Cat</Link>
             </div>
          </div>
         
