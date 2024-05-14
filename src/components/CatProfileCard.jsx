@@ -2,7 +2,7 @@
 function CatProfileCard({ cat }) {
   return (
     <>
-      {/*Cat Name Age and Image*/}
+      {/*Cat Name, Age and Image*/}
 
       <div className="col-span-12  p-16 sm:col-span-6 ">
         <div className="flex items-center gap-4">
@@ -44,14 +44,7 @@ function CatProfileCard({ cat }) {
           <div className="col-span-4  sm:col-span-4 bg-indigo-100 inline-grid p-2 rounded">
             <span className="text-indigo-800">Lives</span>
             <span className=" text-4xl font-bold p-2   leading-none inline-flex items-center">
-              {cat.livesLeft} /9
-            </span>
-          </div>
-
-          <div className="col-span-4  sm:col-span-4 bg-indigo-100 inline-grid p-2 rounded">
-            <span className="text-indigo-800">Purr Sound </span>
-            <span className=" text-4xl font-bold p-2   leading-none inline-flex items-center">
-              Play
+              {cat.livesLeft}/9
             </span>
           </div>
 
