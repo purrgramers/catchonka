@@ -23,7 +23,7 @@ return(<>
     <div className="row-span-12 sm:row-span-6 flex gap-4 justify-center">
       <p className="text-green-800"> Bio </p>
       <span className="text-2xl italic">
-        Hipster ipsum tattooed brunch I am baby.{" "}
+        {cat.bio}{" "}
       </span>
     </div>
     <div className="row-span-12   mt-4  sm:col-span-6 flex gap-4">
@@ -47,9 +47,9 @@ return(<>
 
     <div className=" row-span-12  sm:col-span-6 flex  mt-4 gap-4">
       <div className="col-span-4  sm:col-span-4 bg-green-100 inline-grid p-2 rounded">
-        <span className="text-green-800">Bean Count </span>
+        <span className="text-green-800">Lives</span>
         <span className=" text-4xl font-bold p-2   leading-none inline-flex items-center">
-          10
+          {cat.livesLeft} /9
         </span>
       </div>
 
