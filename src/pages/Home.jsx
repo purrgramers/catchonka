@@ -1,9 +1,11 @@
-import CatProfileList from "../components/CatProfileList";
-
+import CatProfiles from "../components/CatProfiles";
+import HeroSection from "../components/HeroSection";
 function Home() {
   return (
     <>
-      <CatProfileList />
+    <HeroSection />
+    <h1 className="text-3xl font-bold">Our Catchonkas</h1>
+      <CatProfiles />
     </>
   );
 }
