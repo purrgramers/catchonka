@@ -2,7 +2,7 @@
 
 function Footer(){
     return (
-        <footer className="footer footer-center  w-full p-4 bg-green-200 text-pink-800">
+        <footer className="footer footer-center  w-full p-4 bg-indigo-600 text-white">
             <div className="text-center">
                 <p>
                     Copyright © 2024 - 
