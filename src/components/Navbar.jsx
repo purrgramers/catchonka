@@ -25,7 +25,7 @@ function Navbar() {
          
          <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div className="auth flex items-center w-full md:w-full">
-               <button className="bg-orange-400 text-pink-900  p-2 rounded font-bold uppercase hover:bg-orange-500 hover:text-pink-900">Add Cat</button>
+               <button className="bg-orange-400 text-pink-900  p-2 rounded font-bold uppercase hover:bg-orange-500 hover:text-pink-900" href="/cats/create">Add Cat</button>
             </div>
          </div>
         

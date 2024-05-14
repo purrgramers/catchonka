@@ -11,7 +11,7 @@ return(<>
       </span>
     </div>
     <img
-      src="https://img.freepik.com/premium-vector/sexy-cat-cartoon-hand-drawn_19875-244.jpg"
+      src= {cat.picture}
       className="bg-pink-100 mt-4"
     />
   </div>
