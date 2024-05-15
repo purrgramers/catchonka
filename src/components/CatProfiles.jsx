@@ -1,7 +1,7 @@
 import CatProfileList from "./CatProfileList"
 function CatProfiles(){
     return (
-        <CatProfileList/>
+        <CatProfileList />
     )
 }
 export default CatProfiles

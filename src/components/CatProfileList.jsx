@@ -28,7 +28,7 @@ function CatProfileList() {
             return (
               <article
                 key={index}
-                className="bg-white  p-4 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border"
+                className="bg-white h-full  p-4 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border"
               >
                 <div className="flex justify-between items-center w-full pb-4 mb-auto">
                   <div className="flex items-center">
@@ -41,32 +41,25 @@ function CatProfileList() {
                     </div>
                     <div className="flex flex-1">
                       <div className="">
-                        <p className="text-sm font-semibold text-indigo-900 ">{cats.name}</p>
+                        <p className="text-md font-semibold text-indigo-900 ">{cats.name}</p>
                       </div>
                     </div>
                   </div>
                   <div className="flex justify-end">
-                    <div className="text-sm flex items-center text-indigo-500 ">
+                    <div className="text-md flex items-center text-indigo-500 ">
                       • {cats.age} years
                     </div>
                   </div>
                 </div>
-                <div className="relative rounded-2xl">
+                <div className="relative  overflow-hidden rounded-xl overflow-hidden">
                   <img
-                    className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                    src={cats.image}
+                    className=" w-full h-80  object-cover  transition-transform duration-300 transform group-hover:scale-105"
+                    src={cats.picture}
                     alt=""
                   />
                 </div>
-                <div>
-                  <img className="relative mb-2 rounded" src={cats.picture} />
-                </div>
 
-                <img
-                  className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
-                  src={cats.image}
-                  alt=""
-                />
+       
 
                 <Link
                   class="flex justify-center items-center bg-pink-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
@@ -90,16 +83,11 @@ function CatProfileList() {
                 </Link>
 
                 <h3 className="font-medium text-l leading-8">
-                  <span className="bg-orange-600 text-white p-2 rounded  leading-none inline-flex items-center">
+                  <span className="bg-indigo-200 uppercase font-medium text-indigo-500 p-2 mt-2 rounded  leading-none inline-flex items-center">
                     {cats.chonkLevel}
                   </span>
                 </h3>
-                <Link
-                  to={"/cats/" + cats.id}
-                  class="block text-pink-500 relative group-hover:text-pink-700 transition-colors duration-200 "
-                >
-                  See Profile
-                </Link>
+
                 <div></div>
               </article>
             );
