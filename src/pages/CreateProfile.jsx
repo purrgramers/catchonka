@@ -19,11 +19,11 @@ function CreateProfile(props) {
   const handleFileUpload = async (e) => {
     setWaitingForPicture(true);
 
-    const url = `https://api.cloudinary.com/v1_1/${import.meta.env.drv4bvkmy}/upload`;
+    const url = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/upload`;
 
     const dataToUpload = new FormData();
     dataToUpload.append("file", e.target.files[0]);
-    dataToUpload.append("upload_preset", `${import.meta.env.bcn8fofx}`);
+    dataToUpload.append("upload_preset", `${import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET}`);
 
     axios
     .post(url, dataToUpload)
