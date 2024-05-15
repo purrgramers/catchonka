@@ -93,7 +93,7 @@ function EditProfile() {
     axios
     .delete(`${API_URL}/cats/${catId}`)
     .then(()=> {
-    navigate("/cats");
+    navigate("/cats")
     })
     .catch((error)=> {
       console.error("Error deleting cat:", error);  
