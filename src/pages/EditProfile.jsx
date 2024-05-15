@@ -39,6 +39,7 @@ function EditProfile() {
 
     return () => {};
   }, [catId]);
+
   const handleFileUpload = async (e) => {
     updateWaitingForPicture(true);
 
@@ -86,6 +87,17 @@ function EditProfile() {
         navigate(`/cats/${catId}`);
       })
       .catch((e) => console.log("error updating project", e));
+  };
+
+  const handleDelete = () => {
+    axios
+    .delete(`${API_URL}/cats/${catId}`)
+    .then(()=> {
+    navigate("/cats");
+    })
+    .catch((error)=> {
+      console.error("Error deleting cat:", error);  
+    })
   };
 
   return (
@@ -213,6 +225,7 @@ function EditProfile() {
           >
             Save Profile
           </button>{" "}
+          <button className="block bg-red-500 text-white  p-2 rounded font-bold uppercase hover:bg-red-600" type="button" onClick={handleDelete}>Delete</button>
         </form>
       </div>
     </div>
