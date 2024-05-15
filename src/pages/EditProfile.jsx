@@ -81,7 +81,7 @@ function EditProfile() {
       .put(`${API_URL}/cats/${catId}`, newCatDetails)
       // eslint-disable-next-line no-unused-vars
       .then((response) => {
-        navigate(`/projects/${catId}`);
+        navigate(`/cats/${catId}`);
       })
       .catch((e) => console.log("error updating project", e));
   };
