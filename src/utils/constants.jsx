@@ -1,4 +1,6 @@
 const API_URL = "https://catchonka-server.adaptable.app";
 
+const { projectId } = useParams();
+const navigate = useNavigate();
 
-export {API_URL}
+export { projectId , navigate API_URL}
