@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import CatProfileCard from "../components/CatProfileCard";
 import { Link } from "react-router-dom";
 
-
 function Profile() {
   const [cat, setCat] = useState(null);
   const { catId } = useParams();
@@ -26,20 +25,32 @@ function Profile() {
   }, [catId]);
 
   return (
-    <>                  
-    <div className="mx-auto grid max-w-4xl grid-cols-12 gap-4  p-1">
-      
-      {cat && (
-        <>
-        
-          {console.log("rendering content")}
-          <CatProfileCard cat={cat} />
-        </>
-      )}
-    {/* <Link to="/" className="  bg-indigo-200 p-2 text-center  rounded-xl"> Back </Link> */}
+    <>
+      <div className="mx-auto grid max-w-4xl grid-cols-12  ">
+      <Link to="/">
+          <button className=" bg-indigo-200 p-2 text-center  rounded-xl">
+            Back
+          </button>
+        </Link>
+        <Link to={`/cats/edit/${catId}`}>
+          <button className="bg-yellow-200 p-2 text-center  rounded-xl">
+            Edit
+          </button>
+        </Link>
 
-    </div>
-    
+        {/* <button onClick={deleteProject}>Delete</button> */}
+
+
+      </div>
+      <div className="mx-auto grid max-w-4xl grid-cols-12 gap-4  p-1">
+        {cat && (
+          <>
+            {console.log("rendering content")}
+            <CatProfileCard cat={cat} />
+          </>
+        )}
+        {/* <Link to="/" className="  bg-indigo-200 p-2 text-center  rounded-xl"> Back </Link> */}
+      </div>
     </>
   );
 }
