@@ -22,10 +22,12 @@ function EditProfile() {
     const getCats = async () => {
       try {
         const response = await axios.get(`${API_URL}/cats/${catId}`);
+        updateName(response.data.name)
         updateChonkLevel(response.data.chonkLevel);
         updateCatMood(response.data.catMood);
         updateBio(response.data.bio);
         updateLivesLeft(response.data.livesLeft);
+        updateFavouriteSnack(response.data.favouriteSnack)
         updatePicture(response.data.picture);
         updateWaitingForPicture(false);
       } catch (error) {
@@ -91,7 +93,7 @@ function EditProfile() {
       {console.log("rendering edit content")}
       <div>
         <h1 className="text-3xl font-bold mb-2">Edit profile</h1>
-        {picture && <img src={picture} alt="my cloudinary image" />}{" "}
+        {picture && <img src={picture} alt="my cloudinary image"  />}{" "}
         {/*preview of what is to be uploaded */}
         <input
           className="w-full  bg-indigo-50 p-0.5 rounded"
