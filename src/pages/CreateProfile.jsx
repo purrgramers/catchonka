@@ -5,39 +5,41 @@ import { useNavigate } from "react-router-dom";
 
 function CreateProfile(props) {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState(null);
   const [favouriteSnack, setFavouriteSnack] = useState("");
-  const [chonkLevel, setChonkLevel] = useState("");
-  const [catMood, setCatMood] = useState("");
+  const [chonkLevel, setChonkLevel] = useState(null);
+  const [catMood, setCatMood] = useState(null);
   const [bio, setBio] = useState("");
-  const [livesLeft, setLivesLeft] = useState(0);
-  const [pictureURL, setPictureURl] = useState(null);
-  const [waitingForPictureURL, setWaitingForPictureURL] = useState(false);
+  const [livesLeft, setLivesLeft] = useState(null);
+  const [picture, setPicture] = useState(null);
+  const [waitingForPicture, setWaitingForPicture] = useState(false);
 
   const navigate = useNavigate();
 
   const handleFileUpload = async (e) => {
-    setWaitingForPictureURL(true);
+    setWaitingForPicture(true);
 
-    const url = `https://api.cloudinary.com/v1_1/${
-      import.meta.env.VITE_CLOUDINARY_NAME
-    }/upload`;
+    const url = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/upload`;
 
     const dataToUpload = new FormData();
     dataToUpload.append("file", e.target.files[0]);
-    dataToUpload.append("upload_preset", import.meta.env.bcn8fofx);
+    dataToUpload.append("upload_preset", `${import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET}`);
 
-    try {
-      const response = await axios.post(url, dataToUpload);
-      setPictureURl(response.data.secure_url);
-      setWaitingForPictureURL(false);
-    } catch (error) {
-      console.log("error uploading image");
-      setWaitingForPictureURL(false);
-    }
+    axios
+    .post(url, dataToUpload)
+    .then((response)=> {
+      console.log('RESPONSE ', response.data);
+      setPicture(response.data.secure_url);
+      setWaitingForPicture(false);
+    })
+    .catch((error)=> {
+      console.error("Error uploading file:", error);
+    });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevent default when submmitting
+
     const currentCatId = parseInt(props.catId);
     const catDetails = {
       name,
@@ -47,12 +49,12 @@ function CreateProfile(props) {
       catMood,
       bio,
       livesLeft,
-      pictureURL,
+      picture,
       catId: currentCatId,
     };
 
     try {
-      await axios.post(`${API_URL}/cats`, catDetails);
+    await axios.post(`${API_URL}/cats`, catDetails);
       navigate("/");
     } catch (error) {
       console.log("error creating new cat", error);
@@ -65,12 +67,12 @@ function CreateProfile(props) {
 
       <h1 className="text-3xl font-bold">Create a new profile</h1>
       
-      {pictureURL && <img src={pictureURL} alt="my cloudinary image" />}{" "}
+      {picture && <img src={picture} alt="my cloudinary image" />}{" "}
         {/*preview of what is to be uploaded */}
         <input
           className="w-full h-full bg-indigo-50 p-0.5 rounded"
           type="file"
-          onChange={handleFileUpload}
+          onChange={(e) => handleFileUpload(e)}
         />
         </div>
 
@@ -186,7 +188,7 @@ function CreateProfile(props) {
           <button
             className="block bg-yellow-300 text-indigo-900  p-2 rounded font-bold uppercase hover:bg-yellow-500 hover:text-indigo-900"
             type="submit"
-            disabled={waitingForPictureURL} 
+            disabled={waitingForPicture} 
           >
             Create
           </button>{" "}
