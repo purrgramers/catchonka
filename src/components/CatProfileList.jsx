@@ -62,7 +62,7 @@ function CatProfileList() {
        
 
                 <Link
-                  class="flex justify-center items-center bg-pink-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
+                  className="flex justify-center items-center bg-pink-700 bg-opacity-80 z-10 absolute top-0 left-0 w-full h-full text-white rounded-2xl opacity-0 transition-all duration-300 transform group-hover:scale-105 text-xl group-hover:opacity-100"
                   to={"/cats/" + cats.id}
                 >
                   See Profile
