@@ -1,7 +1,10 @@
 function AboutUs(){
-    return
-    (<div > 
-       <p>this is the about us</p>  
-    </div>)
+    return (
+        <>
+        <p>
+            this is the about us
+        </p>
+        </>
+    )
 }
 export default AboutUs
