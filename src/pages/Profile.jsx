@@ -36,7 +36,7 @@ function Profile() {
           <CatProfileCard cat={cat} />
         </>
       )}
-    <Link to="/" className="  bg-indigo-200 p-2 text-center  rounded-xl"> Back </Link>
+    {/* <Link to="/" className="  bg-indigo-200 p-2 text-center  rounded-xl"> Back </Link> */}
 
     </div>
     
