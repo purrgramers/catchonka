@@ -16,12 +16,12 @@ function CatProfileCard({ cat }) {
 
       {/*Bio and other Info*/}
 
-      <div className="col-span-12  p-16  sm:col-span-6 justify-between gap-8 ">
-        <div className="row-span-12 sm:row-span-6 flex gap-4 justify-center">
+      <div className=" p-16 ">
+        <div >
           <p className="text-indigo-800">Bio </p>
           <span className="text-2xl italic">{cat.bio} </span>
         </div>
-        <div className="row-span-12   mt-4  sm:col-span-6 flex gap-4">
+        <div >
           <p className="text-indigo-800"> Favorite Snack </p>
           <span className="bg-teal-500 text-white p-2 rounded">
             {" "}
@@ -31,24 +31,25 @@ function CatProfileCard({ cat }) {
 
         {/*Chonk Level*/}
 
-        <div className="row-span-12  sm:col-span-6 flex  mt-4 gap-4">
-          <span className="text-indigo-800">Chonk Level </span>
+        <div>
+          <p className=" text-indigo-800">Chonk Level 
           <span className="bg-blue-600 text-white p-2 rounded  leading-none inline-flex items-center">
             {cat.chonkLevel}
           </span>
+          </p>
         </div>
 
         {/*Features*/}
 
-        <div className=" row-span-12  sm:col-span-6 flex  mt-4 gap-4">
-          <div className="col-span-4  sm:col-span-4 bg-indigo-100 inline-grid p-2 rounded">
+        <div className=" col-span-3  sm:col-span-3 flex text-center  mt-4 gap-4">
+          <div className="bg-indigo-100 inline-grid p-2 rounded">
             <span className="text-indigo-800">Lives</span>
             <span className=" text-4xl font-bold p-2   leading-none inline-flex items-center">
               {cat.livesLeft}/9
             </span>
           </div>
 
-          <div className="col-span-4  sm:col-span-4 bg-indigo-100 inline-grid p-2 rounded">
+          <div className="bg-indigo-100 inline-grid p-2 rounded">
             <span className="text-indigo-800">Mood</span>
             <span className=" text-4xl font-bold p-2   leading-none inline-flex items-center">
               {cat.catMood}
