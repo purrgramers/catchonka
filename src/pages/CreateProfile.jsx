@@ -23,7 +23,7 @@ function CreateProfile(props) {
 
     const dataToUpload = new FormData();
     dataToUpload.append("file", e.target.files[0]);
-    dataToUpload.append("upload_preset", `${import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET}`);
+    dataToUpload.append("upload_preset", `${import.meta.env.bcn8fofx}`);
 
     axios
     .post(url, dataToUpload)
@@ -70,7 +70,7 @@ function CreateProfile(props) {
       {picture && <img src={picture} alt="my cloudinary image" />}{" "}
         {/*preview of what is to be uploaded */}
         <input
-          className="w-full h-full bg-indigo-50 p-0.5 rounded"
+          className="w-full h-5/6 bg-indigo-50 p-0.5 rounded"
           type="file"
           onChange={(e) => handleFileUpload(e)}
         />
