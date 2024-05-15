@@ -16,9 +16,9 @@ function Navbar() {
          </input>
          <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
-               <ul className="md:flex items-center justify-between  rounded-full text-base bg-indigo-600 text-indigo-900 p-2  ">
-                  <li><NavLink className="inline-block no-underline hover:text-white hover:bg-pink-500 font-medium  rounded-full bg-pink-200 text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
-                  <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/cats/:catId">Profile</NavLink></li>
+               <ul className="md:flex items-center justify-between  rounded-full text-base bg-indigo-600 text-indigo-200 p-2  ">
+                  <li><NavLink className="inline-block no-underline hover:text-white hover:bg-pink-500 font-medium  rounded-full  text-lg py-2 px-4 lg:-ml-2" to="/">Home</NavLink></li>
+                  <li><NavLink className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/aboutUs">About Us</NavLink></li>
                </ul>
             </nav>
          </div>
