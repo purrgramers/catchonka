@@ -16,7 +16,7 @@ function CatProfileCard({ cat }) {
 
       {/*Bio and other Info*/}
 
-      <div className=" p-16 ">
+      <div className="col-span-12  p-16 sm:col-span-6 ">
         <div >
           <p className="text-indigo-800">Bio </p>
           <span className="text-2xl italic">{cat.bio} </span>
