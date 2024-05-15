@@ -177,7 +177,7 @@ function CreateProfile(props) {
               min="1"
               max="9"
               name="livesLeft"
-              placeholder="chonk lives"
+              placeholder="chonk live"
               value={livesLeft}
               onChange={(e) => {
                 setLivesLeft(e.target.value);
