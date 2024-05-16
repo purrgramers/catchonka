@@ -127,9 +127,14 @@ function CreateProfile() {
             {isLoading ? (
               "Uploading"
             ) : (
-              <button type="submit" className="bg-indigo-500 p-2">
-                UPLOAD IMAGE
-              </button>
+              <div>
+                <div className="text-xs text-red-800">
+                  Click Upload Picture before creating your profile!
+                </div>
+                <button type="submit" className="bg-indigo-500 p-2">
+                  UPLOAD IMAGE
+                </button>
+              </div>
             )}
           </p>
         </form>
