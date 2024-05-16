@@ -246,7 +246,7 @@ function CreateProfile() {
             type="submit"
             disabled={waitingForPicture}
           >
-            Create
+            Save Profile
           </button>{" "}
         </form>
       </div>
