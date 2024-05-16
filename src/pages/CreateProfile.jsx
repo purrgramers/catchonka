@@ -87,7 +87,6 @@ function CreateProfile() {
               onChange={handlePictureChange}
             />
             <div>
-              {/* {picture && <img src={picture} alt="my cloudinary image" />}{" "} */}
               {picturePreview && (
                 <img
                   src={picturePreview && picturePreview}
@@ -223,7 +222,6 @@ function CreateProfile() {
           </button>{" "}
         </form>
       </div>
-      {/* <ImageUpload /> */}
     </div>
   );
 }
