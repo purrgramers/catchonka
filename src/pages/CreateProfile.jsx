@@ -25,6 +25,11 @@ function CreateProfile(props) {
     dataToUpload.append("file", e.target.files[0]);
     dataToUpload.append("upload_preset", `${import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET}`);
 
+    const headers = {
+      "Authorization": "Bearer 832655498412498",
+      "Content-Type": "multipart/form-data",
+    };
+
     axios
     .post(url, dataToUpload)
     .then((response)=> {
