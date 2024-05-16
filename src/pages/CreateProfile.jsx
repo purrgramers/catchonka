@@ -99,9 +99,18 @@ function CreateProfile() {
             {isLoading ? (
               "Uploading"
             ) : (
-              <button type="submit" className="bg-indigo-500 p-2">
-                UPLOAD IMAGE
-              </button>
+              <div>
+                {" "}
+                <div className="text-xs text-red-800">
+                  Click Upload Picture before creating your profile!
+                </div>
+                <button
+                  className="text-uppercase bg-indigo-500 p-2"
+                  type="submit"
+                >
+                  Upload Picture
+                </button>
+              </div>
             )}
           </p>
         </form>
@@ -218,10 +227,11 @@ function CreateProfile() {
             type="submit"
             disabled={waitingForPicture}
           >
-            Create
+            Create Profile
           </button>{" "}
         </form>
       </div>
+      {/* <ImageUpload /> */}
     </div>
   );
 }

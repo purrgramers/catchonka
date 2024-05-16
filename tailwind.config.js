@@ -14,7 +14,6 @@ export default {
   ],
 =======
   // eslint-disable-next-line no-undef
-  plugins: [],
->>>>>>> 850b4bd265dd427055ed77c1678538d0175054b6
+  plugins: [require('flowbite/plugin')],
 }
 
