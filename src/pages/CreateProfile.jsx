@@ -3,49 +3,55 @@ import { API_URL } from "../utils/constants";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreateProfile(props) {
+function CreateProfile() {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState("");
   const [favouriteSnack, setFavouriteSnack] = useState("");
-  const [chonkLevel, setChonkLevel] = useState(null);
-  const [catMood, setCatMood] = useState(null);
+  const [chonkLevel, setChonkLevel] = useState("");
+  const [catMood, setCatMood] = useState("");
   const [bio, setBio] = useState("");
-  const [livesLeft, setLivesLeft] = useState(null);
-  const [picture, setPicture] = useState(null);
+  const [livesLeft, setLivesLeft] = useState("");
+  const [picture, setPicture] = useState("");
   const [waitingForPicture, setWaitingForPicture] = useState(false);
+  const [picturePreview, setPicturePreview] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const upload_preset = import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET;
+
+  const url = `https://api.cloudinary.com/v1_1/${
+    import.meta.env.VITE_CLOUDINARY_NAME
+  }/upload`;
 
   const navigate = useNavigate();
 
+  const handlePictureChange = (e) => {
+    setPicture(e.target.files[0]);
+    setPicturePreview(URL.createObjectURL(e.target.files[0]));
+  };
+
   const handleFileUpload = async (e) => {
-    setWaitingForPicture(true);
+    e.preventDefault();
+    setWaitingForPicture(false);
+    setIsLoading(true);
 
-    const url = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/upload`;
+    try {
+      const dataToUpload = new FormData();
 
-    const dataToUpload = new FormData();
-    dataToUpload.append("file", e.target.files[0]);
-    dataToUpload.append("upload_preset", `${import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET}`);
+      dataToUpload.append("file", picture);
+      dataToUpload.append("upload_preset", upload_preset);
 
-    const headers = {
-      "Authorization": "Bearer 832655498412498",
-      "Content-Type": "multipart/form-data",
-    };
+      const response = await axios.post(url, dataToUpload);
 
-    axios
-    .post(url, dataToUpload)
-    .then((response)=> {
-      console.log('RESPONSE ', response.data);
+      console.log(response.data.secure_url);
       setPicture(response.data.secure_url);
-      setWaitingForPicture(false);
-    })
-    .catch((error)=> {
-      console.error("Error uploading file:", error);
-    });
+      setIsLoading(false);
+    } catch (error) {
+      console.log("ERROR", error);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevent default when submmitting
-
-    const currentCatId = parseInt(props.catId);
     const catDetails = {
       name,
       age,
@@ -55,11 +61,10 @@ function CreateProfile(props) {
       bio,
       livesLeft,
       picture,
-      catId: currentCatId,
     };
 
     try {
-    await axios.post(`${API_URL}/cats`, catDetails);
+      await axios.post(`${API_URL}/cats`, catDetails);
       navigate("/");
     } catch (error) {
       console.log("error creating new cat", error);
@@ -69,20 +74,42 @@ function CreateProfile(props) {
   return (
     <div className="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 gap-8 p-4 ">
       <div>
-
-      <h1 className="text-3xl font-bold">Create a new profile</h1>
-      
-      {picture && <img src={picture} alt="my cloudinary image" />}{" "}
-        {/*preview of what is to be uploaded */}
-        <input
-          className="w-full h-5/6 bg-indigo-50 p-0.5 rounded"
-          type="file"
-          onChange={(e) => handleFileUpload(e)}
-        />
-        </div>
+        <h1 className="text-3xl font-bold">Create a new profile</h1>
+        <form id="pictureForm" onSubmit={handleFileUpload}>
+          <label className="block flex-col-reverse relative  focus group text-indigo-700">
+            Add Photo
+            {/*preview of what is to be uploaded */}
+            <input
+              className="w-full h-5/6  p-0.5  rounded"
+              type="file"
+              accept="picture/png, picture/jpg, picture/webp , picture/jpeg"
+              name="picture"
+              onChange={handlePictureChange}
+            />
+            <div>
+              {/* {picture && <img src={picture} alt="my cloudinary image" />}{" "} */}
+              {picturePreview && (
+                <img
+                  src={picturePreview && picturePreview}
+                  alt="a catchonka member photo"
+                />
+              )}{" "}
+            </div>
+          </label>
+          <p>
+            {isLoading ? (
+              "Uploading"
+            ) : (
+              <button type="submit" className="bg-indigo-500 p-2">
+                UPLOAD IMAGE
+              </button>
+            )}
+          </p>
+        </form>
+      </div>
 
       <div className="font-md sm:font-sm">
-        <form onSubmit={handleSubmit} className="space-y-4 ">
+        <form id="profileForm" onSubmit={handleSubmit} className="space-y-4 ">
           <label className="block flex-col-reverse relative  focus group text-indigo-700">
             Name:{" "}
             <input
@@ -97,7 +124,6 @@ function CreateProfile(props) {
               required
             />
           </label>
-
           <label className="inline-block text-indigo-700">
             Age:{" "}
             <input
@@ -114,7 +140,6 @@ function CreateProfile(props) {
               required
             />
           </label>
-
           <label className="block text-indigo-700">
             Bio:
             <input
@@ -128,7 +153,6 @@ function CreateProfile(props) {
               }}
             />
           </label>
-
           <label className="block text-indigo-700">
             Favourite Snack:{" "}
             <input
@@ -142,10 +166,10 @@ function CreateProfile(props) {
               }}
             />
           </label>
-
           <label className="block text-indigo-700">
             Chonk Level:{" "}
             <select
+              id="chonk"
               className="bg-indigo-50 w-full p-2 rounded"
               value={chonkLevel}
               onChange={(e) => setChonkLevel(e.target.value)}
@@ -161,6 +185,7 @@ function CreateProfile(props) {
           <label className="block text-indigo-700">
             Mood:{" "}
             <select
+              id="mood"
               className="bg-indigo-50 p-2 w-full rounded"
               value={catMood}
               onChange={(e) => setCatMood(e.target.value)}
@@ -173,7 +198,6 @@ function CreateProfile(props) {
               <option value="🦦">🦦</option>
             </select>
           </label>
-
           <label className="inline-block text-indigo-700">
             Lives left:{" "}
             <input
@@ -193,13 +217,13 @@ function CreateProfile(props) {
           <button
             className="block bg-yellow-300 text-indigo-900  p-2 rounded font-bold uppercase hover:bg-yellow-500 hover:text-indigo-900"
             type="submit"
-            disabled={waitingForPicture} 
+            disabled={waitingForPicture}
           >
             Create
           </button>{" "}
         </form>
-       
       </div>
+      {/* <ImageUpload /> */}
     </div>
   );
 }
