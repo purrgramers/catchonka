@@ -14,3 +14,10 @@
 .border-main-color {
   border-color: var(--main-color);
 }
+
+.picture {
+  width:100%;
+  img {
+    width:100%;
+  }
+}
