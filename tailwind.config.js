@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require('flowbite/plugin')],
+  // eslint-disable-next-line no-undef
+  plugins: [],
 }
 
