@@ -8,9 +8,8 @@ export default {
   theme: {
     extend: {},
   },
-<<<<<<< HEAD
   plugins: [
-    require('flowbite/plugin')
+    ('flowbite/plugin')
   ],
 }
 
