@@ -96,6 +96,17 @@ function CreateProfile() {
     }
   };
 
+  const handleDelete = () => {
+    axios
+      .delete(`${API_URL}/cats/${catId}`)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error deleting cat:", error);
+      });
+  };
+
   return (
     <div className="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-2 gap-8 p-4 ">
       <div>
@@ -246,6 +257,13 @@ function CreateProfile() {
               required
             />
           </label>
+          <button
+            className="block bg-red-500 text-white  p-2 rounded font-bold uppercase hover:bg-red-600"
+            type="button"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
           <button
             className="block bg-yellow-300 text-indigo-900  p-2 rounded font-bold uppercase hover:bg-yellow-500 hover:text-indigo-900"
             type="submit"
