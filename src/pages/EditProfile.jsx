@@ -3,7 +3,7 @@ import { API_URL } from "../utils/constants";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function CreateProfile() {
+function EditProfile() {
   const { catId } = useParams();
 
   const [name, setName] = useState("");
@@ -89,7 +89,7 @@ function CreateProfile() {
     };
 
     try {
-      await axios.post(`${API_URL}/cats`, catDetails);
+      await axios.put(`${API_URL}/cats/${catId}`, catDetails);
       navigate("/");
     } catch (error) {
       console.log("error creating new cat", error);
@@ -159,7 +159,7 @@ function CreateProfile() {
               className="w-full bg-indigo-50 p-2 rounded"
               type="text"
               name="name"
-              placeholder="chonk name"
+              placeholder={name}
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -175,7 +175,7 @@ function CreateProfile() {
               min="0"
               max="20"
               name="age"
-              placeholder="chonk age"
+              placeholder={age}
               value={age}
               onChange={(e) => {
                 setAge(e.target.value);
@@ -189,7 +189,7 @@ function CreateProfile() {
               className="w-full bg-indigo-50 p-2 rounded"
               type="text"
               name="bio"
-              placeholder="chonk bio"
+              placeholder={bio}
               value={bio}
               onChange={(e) => {
                 setBio(e.target.value);
@@ -202,7 +202,7 @@ function CreateProfile() {
               className="w-full bg-indigo-50 p-2 rounded"
               type="text"
               name="favouriteSnack"
-              placeholder="chonk fav snack"
+              placeholder={favouriteSnack}
               value={favouriteSnack}
               onChange={(e) => {
                 setFavouriteSnack(e.target.value);
@@ -278,4 +278,4 @@ function CreateProfile() {
   );
 }
 
-export default CreateProfile;
+export default EditProfile;

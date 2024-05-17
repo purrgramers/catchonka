@@ -17,12 +17,12 @@ function CatProfileCard({ cat }) {
       {/*Bio and other Info*/}
 
       <div className="col-span-12  p-16 sm:col-span-6 ">
-        <div >
+        <div>
           <p className="text-indigo-800">Bio </p>
           <span className="text-2xl italic">{cat.bio} </span>
         </div>
-        <div >
-          <p className="text-indigo-800"> Favorite Snack </p>
+        <div>
+          <p className="text-indigo-800 mb-2"> Favorite Snack </p>
           <span className="bg-teal-500 text-white p-2 rounded">
             {" "}
             {cat.favouriteSnack}
@@ -32,10 +32,11 @@ function CatProfileCard({ cat }) {
         {/*Chonk Level*/}
 
         <div>
-          <p className=" text-indigo-800">Chonk Level 
-          <span className="bg-blue-600 text-white p-2 rounded  leading-none inline-flex items-center">
-            {cat.chonkLevel}
-          </span>
+          <p className=" text-indigo-800 block">
+            Chonk Level
+            <span className="bg-blue-600 text-white p-2 rounded m-2 leading-none inline-flex items-center">
+              {cat.chonkLevel}
+            </span>
           </p>
         </div>
 
